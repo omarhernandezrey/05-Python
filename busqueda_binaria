@@ -1,0 +1,24 @@
+objetivo = int(input('Escoge un numero: '))  # Solicita al usuario que ingrese un número y lo guarda en la variable objetivo.
+epsilon = 0.01  # Define un valor pequeño para epsilon, que determina la precisión de la aproximación.
+bajo = 0.0  # Inicializa el límite inferior del rango de búsqueda en 0.0.
+alto = max(1.0, objetivo)  # Inicializa el límite superior del rango de búsqueda en el máximo entre 1.0 y el objetivo.
+respuesta = (alto + bajo) / 2  # Calcula una respuesta inicial como el punto medio del rango de búsqueda.
+
+while abs(respuesta**2 - objetivo) >= epsilon:
+    # El ciclo se ejecuta mientras la diferencia entre el cuadrado de la respuesta y el objetivo sea mayor o igual a epsilon.
+    print(f'bajo={bajo}, alto={alto}, respuesta={respuesta}')  # Imprime los límites bajo y alto del rango de búsqueda, junto con el valor actual de respuesta.
+    if respuesta**2 < objetivo:  # Si el cuadrado de la respuesta es menor que el objetivo, actualiza el límite inferior del rango de búsqueda.
+        bajo = respuesta
+    else:  # Si el cuadrado de la respuesta es mayor o igual al objetivo, actualiza el límite superior del rango de búsqueda.
+        alto = respuesta
+
+    respuesta = (alto + bajo) / 2  # Actualiza la respuesta como el punto medio del nuevo rango de búsqueda.
+
+print(f'La raiz cuadrada de {objetivo} es {respuesta}')  # Imprime la raíz cuadrada encontrada.
+
+#-----------------------------------------------------------------------------------------------------------------
+# En resumen, este código utiliza el método de búsqueda binaria para encontrar la raíz cuadrada de un número
+#  ingresado por el usuario. Comienza definiendo un rango de búsqueda entre 0.0 y el valor máximo entre 1.0
+#  y el objetivo. Luego, itera ajustando el rango de búsqueda a la mitad en cada iteración hasta que la diferencia
+#  entre el cuadrado de la respuesta y el objetivo sea menor que epsilon. En cada iteración, se actualizan los límites
+#  del rango de búsqueda según el valor de la respuesta. Los comentarios explican cada línea de manera detallada.
